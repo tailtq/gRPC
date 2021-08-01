@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message Post {
+    string title = 1;
+    repeated string tags = 2;
+    string content = 3;
+    Author author = 4;
+    bool is_approved = 5;
+    repeated Category categories = 6;
+
+    message Category {
+        string title = 1;
+    }
+}
+
+message Author {
+    string first_name = 1;
+    string last_name = 2;
+}
