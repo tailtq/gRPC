@@ -7,16 +7,29 @@
 
 ## Advantages
 
+__1. Consistency__
 - Data is fully typed
-- Data is compressed automatically (binary and efficiently serialized), so it consumes less CPU
 - Schema (defined using .proto file) is needed to generate code and read the data
-- Documentation can be embedded in the schema
-- Data can be read across any language (C#, Java, Go, Python, JavaScript, etc...)
+- Code is generated for you automatically by the library
+
+
+__2. Support data evolution__
 - Schema can evolve over time, in a safe manner (schema evolution)
-- 3-10x smaller, 20-100x faster than XML
-- Code is generated for you automatically
-- Very convenient for transporting a lot of data
 - Allows for easy API evolution using rules
+
+
+__3. Fully documented__
+- Documentation can be embedded in the schema
+
+
+__4. Multiple languages support__ (C#, Java, Go, Python, JavaScript, etc...)
+
+
+__5. Lightweight data__
+- Data is compressed automatically (binary and efficiently serialized), so it consumes less CPU
+- Very convenient for transporting a lot of data
+- 3-10x smaller, 20-100x faster than XML
+- It is even lighter than JSON ([Reference](https://auth0.com/blog/beating-json-performance-with-protobuf/))
 
 
 ## Disadvantages:
@@ -209,7 +222,7 @@ service SearchService {
 - Fields can be removed, as long as the tag number is not used again in your updated message type
 - For data type changes (not recommended), refer to the documentation
 
-1. Removing Fields - Reserved Tags
+__1. Removing Fields - Reserved Tags__
 
 - When removing a field, you should always reserve the tag and the name (`reserved` keyword)
     - Prevent the tag and the name to be re-used
@@ -237,7 +250,7 @@ message MyMessage {
 __Note:__ We should not ever remove any reserved tags.
 
 
-2. Beware of Defaults
+__2. Beware of Defaults__
 
 - They allows us to easily evolve Protobuf files without breaking any existing or new codes
 - They also ensure we know that a field will always have a non-null values
