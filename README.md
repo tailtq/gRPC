@@ -266,3 +266,8 @@ __Note:__ We should not ever remove any reserved tags.
 
 - At the core of gRPC, you need to define the messages and services using Protocol Buffers
 - The rest of the gRPC code will be generated for you and you'll have to provide an implementation for it
+
+
+## What's next?
+
+- Implement the communication between client and server using gRPC.
